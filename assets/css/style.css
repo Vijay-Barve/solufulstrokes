@@ -639,3 +639,164 @@ footer {
         padding: 0 15px;
     }
 }
+
+/* Ensure mailto links in contact/footer match text color and style */
+.contact-info a[href^="mailto:"],
+.footer-section a[href^="mailto:"] {
+  color: inherit;
+  text-decoration: none;
+  font-weight: inherit;
+}
+.contact-info a[href^="mailto:"]:hover,
+.footer-section a[href^="mailto:"]:hover {
+  text-decoration: underline;
+}
+
+/* Enhance embedded Google Form appearance */
+.contact-form-embed {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(23, 76, 60, 0.10);
+  padding: 32px 16px;
+  margin: 0 auto;
+  max-width: 700px;
+  width: 100%;
+}
+.contact-form-embed iframe {
+  border-radius: 12px;
+  border: none;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  background: transparent;
+}
+@media (max-width: 800px) {
+  .contact-form-embed {
+    padding: 16px 4px;
+    max-width: 100%;
+  }
+  .contact-form-embed iframe {
+    width: 100%;
+    min-width: 0;
+    height: 600px;
+  }
+}
+
+/* Testimonials Section */
+.testimonials {
+  background: #f8f9fa;
+  padding: 80px 0 60px 0;
+}
+.testimonials h2 {
+  text-align: center;
+  color: var(--primary-green);
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 2.5rem;
+}
+.testimonial-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.testimonial-item {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(23, 76, 60, 0.08);
+  padding: 2rem 1.5rem;
+  max-width: 350px;
+  min-width: 260px;
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.testimonial-item:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(23, 76, 60, 0.13);
+}
+.testimonial-item p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 1.2rem;
+  font-style: italic;
+}
+.testimonial-item span {
+  color: var(--primary-green);
+  font-weight: 600;
+  font-size: 1rem;
+  align-self: flex-end;
+}
+
+/* FAQ Section */
+.faq {
+  background: #fff;
+  padding: 80px 0 60px 0;
+}
+.faq h2 {
+  text-align: center;
+  color: var(--primary-green);
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 2.5rem;
+}
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.faq-item {
+  background: #f8f9fa;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(23, 76, 60, 0.07);
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  transition: box-shadow 0.2s;
+  cursor: pointer;
+  position: relative;
+}
+.faq-item:hover {
+  box-shadow: 0 6px 24px rgba(23, 76, 60, 0.13);
+}
+.faq-item h3 {
+  font-size: 1.15rem;
+  color: var(--primary-green);
+  margin-bottom: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.faq-item p {
+  color: #333;
+  font-size: 1.05rem;
+  margin: 0;
+  line-height: 1.7;
+  transition: max-height 0.3s, opacity 0.3s;
+}
+
+/* FAQ Accordion (JS optional, but style for future) */
+.faq-item.collapsed p {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0;
+}
+.faq-item p {
+  max-height: 500px;
+  opacity: 1;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .testimonial-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .faq-list {
+    padding: 0 10px;
+  }
+}

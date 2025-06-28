@@ -147,42 +147,6 @@ function bookEvent(eventTitle) {
     closeModal();
 }
 
-// Contact form handling
-document.addEventListener('DOMContentLoaded', () => {
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const name = this.querySelector('input[type="text"]').value;
-            const email = this.querySelector('input[type="email"]').value;
-            const subject = this.querySelector('input[placeholder="Subject"]').value;
-            const message = this.querySelector('textarea').value;
-            
-            // Simple validation
-            if (!name || !email || !message) {
-                alert('Please fill in all required fields.');
-                return;
-            }
-            
-            // Simulate form submission
-            const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                alert('Thank you for your message! We\'ll get back to you soon.');
-                this.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
-        });
-    }
-});
-
 // Intersection Observer for animations
 const observerOptions = {
     threshold: 0.1,
@@ -285,4 +249,77 @@ window.addEventListener('load', () => {
         document.body.style.opacity = '1';
     }, 100);
 });
+
+// Gallery Loader: Displays Indian art samples for each service.
+// To use your own images, update the 'samples' array below with your image URLs and labels.
+function loadGalleryImages() {
+  const galleryDiv = document.getElementById('dynamic-gallery');
+  if (!galleryDiv) return;
+
+  // Use actual filenames from assets/img for each service
+  const samples = [
+    {
+      src: 'assets/img/warli.jpg',
+      alt: 'Warli Painting',
+      label: 'Warli Painting'
+    }, {
+        src: 'assets/img/landscape.jpg',
+        alt: 'Landscape Painting',
+        label: 'Landscape Painting'
+      },
+    {
+      src: 'assets/img/mural.jpg',
+      alt: 'Mural Painting',
+      label: 'Mural Painting'
+    },
+  
+    {
+      src: 'assets/img/schoolwall.jpg',
+      alt: 'School Wall Painting',
+      label: 'School Wall Painting'
+    },
+    {
+      src: 'assets/img/fabric.jpg',
+      alt: 'Fabric Painting',
+      label: 'Fabric Painting'
+    },
+    {
+        src: 'assets/img/abstract.jpg',
+        alt: 'Abstract Painting',
+        label: 'Abstract Painting'
+      },
+    {
+      src: 'assets/img/kidsroom.jpg',
+      alt: 'Kids Room Wall Painting',
+      label: 'Kids Room Wall Painting'
+    },
+    {
+      src: 'assets/img/portrait.jpg',
+      alt: 'Portrait Painting',
+      label: 'Portrait Painting'
+    },
+    {
+      src: 'assets/img/pencil.jpg',
+      alt: 'Pencil Sketch',
+      label: 'Pencil Sketch'
+    },
+    {
+      src: 'assets/img/wall.jpg',
+      alt: 'Wall Painting',
+      label: 'Wall Painting'
+    },  {
+        src: 'assets/img/fiber.jpg',
+        alt: 'Fiber Murals / Statues',
+        label: 'Fiber Murals / Statues'
+      },
+  ];
+  galleryDiv.innerHTML = samples.map(sample => `
+    <div class="gallery-item">
+      <img src="${sample.src}" alt="${sample.alt}" />
+      <div class="gallery-overlay"><h3>${sample.label}</h3></div>
+    </div>
+  `).join('');
+}
+
+document.addEventListener('DOMContentLoaded', loadGalleryImages);
 
